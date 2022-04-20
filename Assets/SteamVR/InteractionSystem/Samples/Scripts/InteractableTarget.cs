@@ -65,10 +65,11 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void HandHoverUpdate( Hand hand )
 		{
-			if ((type == "Left Hand" && hand.name == "FallbackHand") || 
-				(type == "Right Hand" && hand.name == "Right Hand") ||
-				(type == "Left Foot" && hand.name == "Left Foot" || 
-				(type == "Right Foot" && hand.name == "Right Foot"))) {
+			if ((type == "Left Hand" && hand.name == "LeftHand") || 
+				(type == "Right Hand" && hand.name == "RightHand") ||
+				(type == "Left Foot" && hand.name == "LeftFoot" || 
+				(type == "Right Foot" && hand.name == "RightFoot"))) {
+					generalText.text = target.name;
 					GameObject.Destroy(target);
 				// GrabTypes startingGrabType = hand.GetGrabStarting();
 				// bool isGrabEnding = hand.IsGrabEnding(this.gameObject);

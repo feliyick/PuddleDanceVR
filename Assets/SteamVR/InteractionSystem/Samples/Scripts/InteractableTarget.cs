@@ -70,6 +70,8 @@ namespace Valve.VR.InteractionSystem.Sample
 				(type == "Left Foot" && hand.name == "LeftFoot" || 
 				(type == "Right Foot" && hand.name == "RightFoot"))) {
 					generalText.text = target.name;
+					//add score
+					SumScore.Add(1);
 					GameObject.Destroy(target);
 				// GrabTypes startingGrabType = hand.GetGrabStarting();
 				// bool isGrabEnding = hand.IsGrabEnding(this.gameObject);
@@ -101,6 +103,8 @@ namespace Valve.VR.InteractionSystem.Sample
 				// }
 			} else {
 				generalText.text = "Wrong Hand " + hand.name ;
+				//penalty score
+				SumScore.Add(-1);
 			}
 		}
 

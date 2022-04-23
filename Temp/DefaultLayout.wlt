@@ -400,7 +400,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/UTech/MG-Karting
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: /Users/felicityyick/Documents/Spring 2022/CIS568/PuddleDanceVR
+  m_LastProjectPath: C:\Users\A\Desktop\PuddleDanceVR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:

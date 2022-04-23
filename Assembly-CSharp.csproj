@@ -37,15 +37,16 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csAnimationSpin.cs" />
+     <Compile Include="Assets\sumScore\Example\SumScoreExample.cs" />
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csParticleMove.cs" />
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csMouseOrbit.cs" />
+     <Compile Include="Assets\sumScore\Scripts\SumScoreManager.cs" />
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csShowAllEffect.cs" />
      <Compile Include="Assets\SpecialEffects\EffectEditor\ShurikenEffectEditor\csShurikenEffectEditor.cs" />
      <Compile Include="Assets\SpecialEffects\EffectEditor\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
-     <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csDestroyEffect.cs" />
-     <Compile Include="Assets\sumScore\Scripts\SumScoreManager.cs" />
-     <Compile Include="Assets\sumScore\Example\SumScoreExample.cs" />
      <Compile Include="Assets\sumScore\Scripts\SumScore.cs" />
+     <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csDestroyEffect.cs" />
+     <Compile Include="Assets\Scripts\ChangeScene.cs" />
      <None Include="Assets\sumScore\LICENSE.txt" />
      <None Include="Assets\sumScore\README.md.txt" />
     <Reference Include="UnityEngine">

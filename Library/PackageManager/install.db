@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "packages": {
+    "com.valvesoftware.unity.openvr": {
+      "tarball": {
+        "hash": "3ee6c452bc34",
+        "mtime": 1650210651247,
+        "size": 16210619,
+        "localPath": "/Users/felicityyick/Documents/Spring 2022/CIS568/PuddleDanceVR/Assets/SteamVR/OpenVRUnityXRPackage/Editor/com.valvesoftware.unity.openvr-1.1.4.tgz"
+      }
+    }
+  }
+}

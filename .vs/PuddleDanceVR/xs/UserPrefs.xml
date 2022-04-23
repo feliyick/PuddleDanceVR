@@ -1,0 +1,24 @@
+﻿<Properties StartupConfiguration="{ABDEE80A-2ACB-CFC7-C3D6-81F06EC59CD0}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SpecialEffects/EffectEditor/ShurikenEffectEditor/csShurikenEffectChanger.cs">
+    <Files>
+      <File FileName="Assets/SpecialEffects/Animation&amp;Script/csParticleMove.cs" Line="10" Column="3" />
+      <File FileName="Assets/SteamVR/InteractionSystem/Samples/Scripts/InteractableTarget.cs" Line="25" Column="31" />
+      <File FileName="Assets/SpecialEffects/Animation&amp;Script/csShowAllEffect.cs" Line="15" Column="6" />
+      <File FileName="Assets/SpecialEffects/EffectEditor/ShurikenEffectEditor/csShurikenEffectChanger.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PuddleDanceVR" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="96bc1021-a2de-4b78-b46d-8fc8a02981df" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

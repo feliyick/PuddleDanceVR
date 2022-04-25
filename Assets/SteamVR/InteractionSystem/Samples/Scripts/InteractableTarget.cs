@@ -54,9 +54,27 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void OnHandHoverBegin( Hand hand )
 		{
-			generalText.text = "Hovering hand: " + hand.name;
+			generalText.text = "Hovering hand: " + hand.name + " TYPE: " + type;
 			//add score
-			SumScore.Add(1);
+			Debug.Log("Hovering hand: " + hand.name + " TYPE: " + type + 
+			" IS RIGHT HAND: " + ((hand.name == "RightHand") && (type == "Right Hand")));
+			if ((type == "Right Hand") && (hand.name == "RightHand")) {
+				SumScore.Add(1);
+				Debug.Log("CORRECT");
+			} else if ((type == "Left Hand") && (hand.name == "LeftHand")) {
+				SumScore.Add(1);
+				Debug.Log("CORRECT");	
+			} else if ((type == "Right Foot") && (hand.name == "RightFoot")) {
+				SumScore.Add(1);
+				Debug.Log("CORRECT");
+			} else if ((type == "Left Foot") && (hand.name == "LeftFoot")) {
+				SumScore.Add(1);
+				Debug.Log("CORRECT");
+			} else {
+				SumScore.Add(-1);
+				Debug.Log("WRONG");
+			}
+
 		}
 
 
@@ -76,46 +94,47 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void HandHoverUpdate( Hand hand )
 		{
-			Debug.Log("HAND HOVER UPDATE");
-			if ((type == "Left Hand" && hand.name == "LeftHand") || 
-				(type == "Right Hand" && hand.name == "RightHand") ||
-				(type == "Left Foot" && hand.name == "LeftFoot" || 
-				(type == "Right Foot" && hand.name == "RightFoot"))) {
-					generalText.text = "CORRECT " + target.name;
-					Debug.Log("KILL TARGET CORRECT");
-				// GrabTypes startingGrabType = hand.GetGrabStarting();
-				// bool isGrabEnding = hand.IsGrabEnding(this.gameObject);
+			// Debug.Log("HAND HOVER UPDATE");
+			// if ((type == "Left Hand" && hand.name == "LeftHand") || 
+			// 	(type == "Right Hand" && hand.name == "RightHand") ||
+			// 	(type == "Left Foot" && hand.name == "LeftFoot") || 
+			// 	(type == "Right Foot" && hand.name == "RightFoot")) {
+			// 		generalText.text = "CORRECT " + target.name;
+			// 		Debug.Log("KILL TARGET CORRECT");
+			// 		SumScore.Add(1);
+			// 	// GrabTypes startingGrabType = hand.GetGrabStarting();
+			// 	// bool isGrabEnding = hand.IsGrabEnding(this.gameObject);
 
-				// if (interactable.attachedToHand == null && startingGrabType != GrabTypes.None)
-				// {
-				// 	// Save our position/rotation so that we can restore it when we detach
-				// 	oldPosition = transform.position;
-				// 	oldRotation = transform.rotation;
+			// 	// if (interactable.attachedToHand == null && startingGrabType != GrabTypes.None)
+			// 	// {
+			// 	// 	// Save our position/rotation so that we can restore it when we detach
+			// 	// 	oldPosition = transform.position;
+			// 	// 	oldRotation = transform.rotation;
 
-				// 	// Call this to continue receiving HandHoverUpdate messages,
-				// 	// and prevent the hand from hovering over anything else
-				// 	hand.HoverLock(interactable);
+			// 	// 	// Call this to continue receiving HandHoverUpdate messages,
+			// 	// 	// and prevent the hand from hovering over anything else
+			// 	// 	hand.HoverLock(interactable);
 
-				// 	// Attach this object to the hand
-				// 	hand.AttachObject(gameObject, startingGrabType, attachmentFlags);
-				// }
-				// else if (isGrabEnding)
-				// {
-				// 	// Detach this object from the hand
-				// 	hand.DetachObject(gameObject);
+			// 	// 	// Attach this object to the hand
+			// 	// 	hand.AttachObject(gameObject, startingGrabType, attachmentFlags);
+			// 	// }
+			// 	// else if (isGrabEnding)
+			// 	// {
+			// 	// 	// Detach this object from the hand
+			// 	// 	hand.DetachObject(gameObject);
 
-				// 	// Call this to undo HoverLock
-				// 	hand.HoverUnlock(interactable);
+			// 	// 	// Call this to undo HoverLock
+			// 	// 	hand.HoverUnlock(interactable);
 
-				// 	// Restore position/rotation
-				// 	transform.position = oldPosition;
-				// 	transform.rotation = oldRotation;
-				// }
-			} else {
-				generalText.text = "Wrong Hand " + hand.name ;
-				//penalty score
-				// SumScore.Add(-1);
-			}
+			// 	// 	// Restore position/rotation
+			// 	// 	transform.position = oldPosition;
+			// 	// 	transform.rotation = oldRotation;
+			// 	// }
+			// } else {
+			// 	generalText.text = "Wrong Hand " + hand.name ;
+			// 	//penalty score
+			// 	// SumScore.Add(-1);
+			// }
 		}
 
 

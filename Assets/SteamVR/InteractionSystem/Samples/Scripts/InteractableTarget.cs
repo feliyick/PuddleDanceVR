@@ -27,6 +27,9 @@ namespace Valve.VR.InteractionSystem.Sample
         private Interactable interactable;
 		private Mesh target;
 
+		private float lifespan = 0;
+		private float maxLifespan;
+
 		//-------------------------------------------------
 		void Awake()
 		{
@@ -39,6 +42,10 @@ namespace Valve.VR.InteractionSystem.Sample
 
             interactable = this.GetComponent<Interactable>();
 			target = this.GetComponent<Mesh>();
+
+
+			// how long a target is "active for" in seconds
+			maxLifespan = 3;
 		}
 
 
@@ -48,6 +55,8 @@ namespace Valve.VR.InteractionSystem.Sample
 		private void OnHandHoverBegin( Hand hand )
 		{
 			generalText.text = "Hovering hand: " + hand.name;
+			//add score
+			SumScore.Add(1);
 		}
 
 
@@ -57,6 +66,8 @@ namespace Valve.VR.InteractionSystem.Sample
 		private void OnHandHoverEnd( Hand hand )
 		{
 			generalText.text = type;
+			KillTarget();
+			
 		}
 
 
@@ -65,14 +76,13 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void HandHoverUpdate( Hand hand )
 		{
+			Debug.Log("HAND HOVER UPDATE");
 			if ((type == "Left Hand" && hand.name == "LeftHand") || 
 				(type == "Right Hand" && hand.name == "RightHand") ||
 				(type == "Left Foot" && hand.name == "LeftFoot" || 
 				(type == "Right Foot" && hand.name == "RightFoot"))) {
-					generalText.text = target.name;
-					//add score
-					SumScore.Add(1);
-					GameObject.Destroy(target);
+					generalText.text = "CORRECT " + target.name;
+					Debug.Log("KILL TARGET CORRECT");
 				// GrabTypes startingGrabType = hand.GetGrabStarting();
 				// bool isGrabEnding = hand.IsGrabEnding(this.gameObject);
 
@@ -104,7 +114,7 @@ namespace Valve.VR.InteractionSystem.Sample
 			} else {
 				generalText.text = "Wrong Hand " + hand.name ;
 				//penalty score
-				SumScore.Add(-1);
+				// SumScore.Add(-1);
 			}
 		}
 
@@ -145,6 +155,12 @@ namespace Valve.VR.InteractionSystem.Sample
                 hoveringText.text = string.Format("Hovering: {0}", interactable.isHovering);
                 lastHovering = interactable.isHovering;
             }
+			if (lifespan < maxLifespan) {
+				lifespan += Time.deltaTime;
+			} else {
+				Debug.Log("KILL TARGET OVER LIFE SPAN");
+				KillTarget();
+			}
         }
 
 
@@ -162,5 +178,15 @@ namespace Valve.VR.InteractionSystem.Sample
 		private void OnHandFocusLost( Hand hand )
 		{
 		}
+
+		//-------------------------------------------------
+		// Called when the correct hand hits a target, player misses, or runs out of time
+		//-------------------------------------------------
+		private void KillTarget()
+		{
+			GameObject.Destroy(gameObject);
+		}
+
+
 	}
 }

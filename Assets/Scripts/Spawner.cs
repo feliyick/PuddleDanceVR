@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
 
     public GameObject[] targets;
     public Transform[] points;
-    public float beat = (60/109)*2;
+    public float beat; // = (60/109)*2;
     private float timer;
     public GameObject player;
 
@@ -36,13 +36,22 @@ public class Spawner : MonoBehaviour
             Vector3 playerPos = player.transform.position;
             Vector3 playerDirection = player.transform.forward;
             Quaternion playerRotation = player.transform.rotation;
-            float spawnDistance = 1;
+            float spawnDistance = 0.8f;
 
-            Vector3 spawnOffset =/* Quaternion.Euler(Random.Range(-5, 5), Random.Range(-10, 10), Random.Range(-5, 5)) **/ playerDirection * spawnDistance; 
+            Vector3 spawnOffset =Quaternion.Euler(0, Random.Range(-30, 30), 0) * playerDirection * spawnDistance; 
             Vector3 spawnPos = playerPos + spawnOffset;
             Debug.Log(spawnPos);
-            GameObject target = Instantiate(targets[Random.Range(0, 4)], spawnPos, playerRotation);
-            //GameObject target = Instantiate(targets[Random.Range(0, 4)], points[Random.Range(0, 4)]);
+            
+
+            int targetIdx = Random.Range(0, 4);
+            if (targetIdx == 2 || targetIdx == 3) { // Foot Target is Spawned
+                float yRange = Random.Range(-0.6f, -0.4f);
+                spawnPos.y = playerPos.y + yRange;
+            } else { // Hand Target is spawned
+                float yRange = Random.Range(-0.3f, 0.3f);
+                spawnPos.y = playerPos.y + yRange;
+            }
+            GameObject target = Instantiate(targets[targetIdx], spawnPos, playerRotation);
             timer -= beat;
         }
         timer += Time.deltaTime;

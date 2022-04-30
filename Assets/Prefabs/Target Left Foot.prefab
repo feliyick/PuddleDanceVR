@@ -102,6 +102,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: Left Foot
+  WrongAlbedo: {fileID: 2800000, guid: 3ac0369ffa933c34e846267fb6ed2c3d, type: 3}
+  WrongEmissive: {fileID: 2800000, guid: edc7f1ab9b963df4eadb8ac32f630911, type: 3}
+  RightAlbedo: {fileID: 2800000, guid: ebb61178cdae35c41836125ba2898857, type: 3}
+  RightEmissive: {fileID: 2800000, guid: e97c3ad89075076488fe7fb289da1258, type: 3}
 --- !u!114 &1931284839211658029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +183,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -227,7 +230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &976850135983773384
 Transform:
   m_ObjectHideFlags: 0
@@ -253,7 +256,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -323,7 +325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &976850136305288945
 Transform:
   m_ObjectHideFlags: 0
@@ -349,7 +351,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -498,7 +499,7 @@ PrefabInstance:
     - target: {fileID: -2730392799593097486, guid: ac1220db65cd16c40a9275888f999d40,
         type: 3}
       propertyPath: m_Name
-      value: target_FL
+      value: target_HL
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac1220db65cd16c40a9275888f999d40,
         type: 3}

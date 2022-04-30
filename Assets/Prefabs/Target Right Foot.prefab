@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3089606249148385562
 Transform:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3089606249529940259
 Transform:
   m_ObjectHideFlags: 0
@@ -292,6 +292,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: Right Foot
+  WrongAlbedo: {fileID: 2800000, guid: 3ac0369ffa933c34e846267fb6ed2c3d, type: 3}
+  WrongEmissive: {fileID: 2800000, guid: edc7f1ab9b963df4eadb8ac32f630911, type: 3}
+  RightAlbedo: {fileID: 2800000, guid: ebb61178cdae35c41836125ba2898857, type: 3}
+  RightEmissive: {fileID: 2800000, guid: 0aa8408602ff09449827e9f08b0b035d, type: 3}
 --- !u!114 &4441474825873339647
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,6 +36,8 @@ namespace Valve.VR.InteractionSystem.Sample
 		public Texture2D RightAlbedo;
 		public Texture2D RightEmissive;
 
+		private bool isCorrect;
+
 		//-------------------------------------------------
 		void Awake()
 		{
@@ -52,6 +54,8 @@ namespace Valve.VR.InteractionSystem.Sample
 
 			// how long a target is "active for" in seconds
 			maxLifespan = 3;
+
+			isCorrect = false;
 		}
 
 
@@ -65,41 +69,52 @@ namespace Valve.VR.InteractionSystem.Sample
 			Debug.Log("Hovering hand: " + hand.name + " TYPE: " + type + 
 			" IS RIGHT HAND: " + ((hand.name == "RightHand") && (type == "Right Hand")));
 			if ((type == "Right Hand") && (hand.name == "RightHand")) {
-				SumScore.Add(1);
-				hitsRightTarget();
+				correctTargetUpdate();
 				Debug.Log("CORRECT");
 			} else if ((type == "Left Hand") && (hand.name == "LeftHand")) {
-				SumScore.Add(1);
-				hitsRightTarget();
+				correctTargetUpdate();
 				Debug.Log("CORRECT");	
 			} else if ((type == "Right Foot") && (hand.name == "RightFoot")) {
-				SumScore.Add(1);
-				hitsRightTarget();
+				correctTargetUpdate();
 				Debug.Log("CORRECT");
 			} else if ((type == "Left Foot") && (hand.name == "LeftFoot")) {
-				SumScore.Add(1);
-				hitsRightTarget();
+				correctTargetUpdate();
 				Debug.Log("CORRECT");
 			} else {
-				SumScore.Add(-1);
-				hitsWrongTarget();
+				wrongTargetUpdate();
 				Debug.Log("WRONG");
 			}
-
 		}
 
-		private void hitsWrongTarget() {
-			MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-			GetComponent<MeshRenderer>().material.mainTexture = WrongAlbedo;
+		private void wrongTargetUpdate() {
+			GameObject target = this.gameObject.transform.GetChild(3).GetChild(0).gameObject;
+			MeshRenderer meshRenderer = target.GetComponent<MeshRenderer>();
+			meshRenderer.material.mainTexture = WrongAlbedo;
 			meshRenderer.material.EnableKeyword("_EMISSION");
-			meshRenderer.material.SetColor("_EmissionColor", Color.red);
+			meshRenderer.material.SetTexture("_EmissionMap", WrongEmissive);
+
+			isCorrect = false;
+			
 		}
 
-		private void hitsRightTarget() {
-			MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-			GetComponent<MeshRenderer>().material.mainTexture = RightAlbedo;
+		private void correctTargetUpdate() {
+
+			GameObject target = this.gameObject.transform.GetChild(3).GetChild(0).gameObject;
+			MeshRenderer meshRenderer = target.GetComponent<MeshRenderer>();
+			meshRenderer.material.mainTexture = RightAlbedo;
 			meshRenderer.material.EnableKeyword("_EMISSION");
-			meshRenderer.material.SetColor("_EmissionColor", Color.green);
+			meshRenderer.material.SetTexture("_EmissionMap", RightEmissive);
+
+			isCorrect = true;
+		}
+
+
+		void OnDestroy() {
+			if (isCorrect) {
+				SumScore.Add(1);
+			} else {
+				SumScore.Add(-1);
+			}
 		}
 
 
@@ -203,7 +218,8 @@ namespace Valve.VR.InteractionSystem.Sample
 				lifespan += Time.deltaTime;
 			} else {
 				Debug.Log("KILL TARGET OVER LIFE SPAN");
-				KillTarget();
+				wrongTargetUpdate();
+				KillTarget(1);
 			}
         }
 
@@ -226,9 +242,9 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		// Called when the correct hand hits a target, player misses, or runs out of time
 		//-------------------------------------------------
-		private void KillTarget()
+		private void KillTarget(int delay = 0)
 		{
-			GameObject.Destroy(gameObject);
+			GameObject.Destroy(gameObject, delay);
 		}
 
 

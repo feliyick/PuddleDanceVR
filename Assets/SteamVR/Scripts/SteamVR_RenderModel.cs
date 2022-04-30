@@ -800,6 +800,7 @@ namespace Valve.VR
                 {
                     child.gameObject.SetActive(visible);
                 }
+                child.gameObject.SetActive(false);
             }
         }
 

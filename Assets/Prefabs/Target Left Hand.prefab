@@ -197,6 +197,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: Left Hand
+  WrongAlbedo: {fileID: 2800000, guid: 9c4e057f1eb756846ab875a7c9de7f44, type: 3}
+  WrongEmissive: {fileID: 2800000, guid: 6398cd958c2859845bb048f3f82d524c, type: 3}
+  RightAlbedo: {fileID: 2800000, guid: 421b1b5e13ef31b4081d0e012d0fdc80, type: 3}
+  RightEmissive: {fileID: 2800000, guid: e97c3ad89075076488fe7fb289da1258, type: 3}
 --- !u!114 &6818711442812386380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5324337502653055401
 Transform:
   m_ObjectHideFlags: 0
@@ -321,7 +325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5324337502867362192
 Transform:
   m_ObjectHideFlags: 0

@@ -30,6 +30,12 @@ namespace Valve.VR.InteractionSystem.Sample
 		private float lifespan = 0;
 		private float maxLifespan;
 
+		// Textures to update materials in realtime if player hits right or wrong target
+		public Texture2D WrongAlbedo;
+		public Texture2D WrongEmissive;
+		public Texture2D RightAlbedo;
+		public Texture2D RightEmissive;
+
 		//-------------------------------------------------
 		void Awake()
 		{
@@ -60,21 +66,40 @@ namespace Valve.VR.InteractionSystem.Sample
 			" IS RIGHT HAND: " + ((hand.name == "RightHand") && (type == "Right Hand")));
 			if ((type == "Right Hand") && (hand.name == "RightHand")) {
 				SumScore.Add(1);
+				hitsRightTarget();
 				Debug.Log("CORRECT");
 			} else if ((type == "Left Hand") && (hand.name == "LeftHand")) {
 				SumScore.Add(1);
+				hitsRightTarget();
 				Debug.Log("CORRECT");	
 			} else if ((type == "Right Foot") && (hand.name == "RightFoot")) {
 				SumScore.Add(1);
+				hitsRightTarget();
 				Debug.Log("CORRECT");
 			} else if ((type == "Left Foot") && (hand.name == "LeftFoot")) {
 				SumScore.Add(1);
+				hitsRightTarget();
 				Debug.Log("CORRECT");
 			} else {
 				SumScore.Add(-1);
+				hitsWrongTarget();
 				Debug.Log("WRONG");
 			}
 
+		}
+
+		private void hitsWrongTarget() {
+			MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+			GetComponent<MeshRenderer>().material.mainTexture = WrongAlbedo;
+			meshRenderer.material.EnableKeyword("_EMISSION");
+			meshRenderer.material.SetColor("_EmissionColor", Color.red);
+		}
+
+		private void hitsRightTarget() {
+			MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+			GetComponent<MeshRenderer>().material.mainTexture = RightAlbedo;
+			meshRenderer.material.EnableKeyword("_EMISSION");
+			meshRenderer.material.SetColor("_EmissionColor", Color.green);
 		}
 
 

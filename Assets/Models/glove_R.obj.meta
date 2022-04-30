@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: a1cad6069c6df44e7b45ac5225687bca
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21100
   internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: BoxingFBXASC032GloveFBXASC046004Mat
-    second: {fileID: 2100000, guid: f3c7d37519385484ba2609dd04e349f1, type: 2}
+    second: {fileID: 2100000, guid: 4535ce505bb67fc48bdf4e7fb94a9f8c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

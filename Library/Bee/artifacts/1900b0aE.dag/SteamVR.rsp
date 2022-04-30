@@ -106,7 +106,6 @@
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
--define:OPENVR_XR_API
 -define:UNITY_LEGACY_INPUT_HELPERS
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
@@ -313,7 +312,6 @@
 -r:"C:/Users/18sml/OneDrive/Documents/GitHub/PuddleDanceVR/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll"
 -r:"C:/Users/18sml/OneDrive/Documents/GitHub/PuddleDanceVR/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/unityplastic.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/SteamVR_Windows_EditorHelper.ref.dll"
--r:"Library/Bee/artifacts/1900b0aE.dag/Unity.XR.OpenVR.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
@@ -456,6 +454,8 @@
 "Assets/SteamVR/InteractionSystem/Samples/Scripts/Planting.cs"
 "Assets/SteamVR/InteractionSystem/Samples/Scripts/RenderModelChangerUI.cs"
 "Assets/SteamVR/InteractionSystem/Samples/Scripts/SkeletonUIOptions.cs"
+"Assets/SteamVR/InteractionSystem/Samples/Scripts/SumScore.cs"
+"Assets/SteamVR/InteractionSystem/Samples/Scripts/SumScoreManager.cs"
 "Assets/SteamVR/InteractionSystem/Samples/Scripts/TargetHitEffect.cs"
 "Assets/SteamVR/InteractionSystem/Samples/Scripts/TargetMeasurement.cs"
 "Assets/SteamVR/InteractionSystem/Samples/Scripts/URPMaterialSwitcher.cs"

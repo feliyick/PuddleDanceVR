@@ -37,16 +37,17 @@ namespace Valve.VR.InteractionSystem.Sample
 		public Texture2D RightEmissive;
 
 		private bool isCorrect;
+		AudioSource audioSource;
 
 		//-------------------------------------------------
 		void Awake()
 		{
-			var textMeshs = GetComponentsInChildren<TextMesh>();
-            generalText = textMeshs[0];
-            hoveringText = textMeshs[1];
+			// var textMeshs = GetComponentsInChildren<TextMesh>();
+            // generalText = textMeshs[0];
+            // hoveringText = textMeshs[1];
 
-            generalText.text = type;
-            hoveringText.text = "Hovering: False";
+            // generalText.text = type;
+            // hoveringText.text = "Hovering: False";
 
             interactable = this.GetComponent<Interactable>();
 			target = this.GetComponent<Mesh>();
@@ -56,6 +57,7 @@ namespace Valve.VR.InteractionSystem.Sample
 			maxLifespan = 3;
 
 			isCorrect = false;
+			audioSource  = GetComponent<AudioSource>();
 		}
 
 
@@ -64,7 +66,7 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void OnHandHoverBegin( Hand hand )
 		{
-			generalText.text = "Hovering hand: " + hand.name + " TYPE: " + type;
+			// generalText.text = "Hovering hand: " + hand.name + " TYPE: " + type;
 			//add score
 			Debug.Log("Hovering hand: " + hand.name + " TYPE: " + type + 
 			" IS RIGHT HAND: " + ((hand.name == "RightHand") && (type == "Right Hand")));
@@ -84,6 +86,9 @@ namespace Valve.VR.InteractionSystem.Sample
 				wrongTargetUpdate();
 				Debug.Log("WRONG");
 			}
+
+			// Play Sound
+			// audioSource.Play();
 		}
 
 		private void wrongTargetUpdate() {
@@ -110,6 +115,7 @@ namespace Valve.VR.InteractionSystem.Sample
 
 
 		void OnDestroy() {
+			
 			if (isCorrect) {
 				SumScore.Add(1);
 			} else {
@@ -123,7 +129,7 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void OnHandHoverEnd( Hand hand )
 		{
-			generalText.text = type;
+			// generalText.text = type;
 			KillTarget();
 			
 		}
@@ -183,7 +189,7 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void OnAttachedToHand( Hand hand )
         {
-            generalText.text = string.Format("Attached: {0}", hand.name);
+            // generalText.text = string.Format("Attached: {0}", hand.name);
             attachTime = Time.time;
 		}
 
@@ -194,7 +200,7 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void OnDetachedFromHand( Hand hand )
 		{
-            generalText.text = string.Format("Detached: {0}", hand.name);
+            // generalText.text = string.Format("Detached: {0}", hand.name);
 		}
 
 
@@ -203,7 +209,7 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void HandAttachedUpdate( Hand hand )
 		{
-            generalText.text = string.Format("Attached: {0} :: Time: {1:F2}", hand.name, (Time.time - attachTime));
+            // generalText.text = string.Format("Attached: {0} :: Time: {1:F2}", hand.name, (Time.time - attachTime));
 		}
 
         private bool lastHovering = false;
@@ -211,7 +217,7 @@ namespace Valve.VR.InteractionSystem.Sample
         {
             if (interactable.isHovering != lastHovering) //save on the .tostrings a bit
             {
-                hoveringText.text = string.Format("Hovering: {0}", interactable.isHovering);
+                // hoveringText.text = string.Format("Hovering: {0}", interactable.isHovering);
                 lastHovering = interactable.isHovering;
             }
 			if (lifespan < maxLifespan) {

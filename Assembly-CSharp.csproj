@@ -41,15 +41,12 @@
      <Compile Include="Assets\sumScore\Example\SumScoreExample.cs" />
      <Compile Include="Assets\Shared\Scripts\ProximityActivate.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
-     <Compile Include="Assets\Scripts\VRUIItem.cs" />
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csParticleMove.cs" />
      <Compile Include="Assets\Shared\Scripts\AdjustTimeScale.cs" />
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csMouseOrbit.cs" />
      <Compile Include="Assets\sumScore\Scripts\SumScoreManager.cs" />
      <Compile Include="Assets\Shared\Scripts\SimpleCameraController.cs" />
-     <Compile Include="Assets\Scripts\VRUIInputs.cs" />
      <Compile Include="Assets\Scripts\InteractableTarget.cs" />
-     <Compile Include="Assets\Scripts\SteamVR_LaserPointer.cs" />
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csShowAllEffect.cs" />
      <Compile Include="Assets\Scripts\ChangeScene.cs" />
      <Compile Include="Assets\SpecialEffects\EffectEditor\ShurikenEffectEditor\csShurikenEffectEditor.cs" />

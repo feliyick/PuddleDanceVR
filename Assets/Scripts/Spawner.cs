@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Spawner : MonoBehaviour
 {
 
@@ -10,6 +10,8 @@ public class Spawner : MonoBehaviour
     public float beat; // = (60/109)*2;
     private float timer;
     public GameObject player;
+    private float timerProgress;
+    private Slider ProgressBar;
 
     //an AudioSource attached to this GameObject that will play the music.
     public AudioSource musicSource;
@@ -17,12 +19,14 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        ProgressBar = GameObject.Find("ProgressBar").GetComponent<Slider>();
+        Debug.Log("SLIDER START VALUE: " + ProgressBar.value);
     }
 
     // Update is called once per frame
     void Update()
     {
+        ProgressBar.value = timerProgress / musicSource.clip.length;
 
         if (timer>beat)
         {
@@ -48,5 +52,69 @@ public class Spawner : MonoBehaviour
             timer -= beat;
         }
         timer += Time.deltaTime;
+        timerProgress += Time.deltaTime;
+
     }
 }
+
+
+/***
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+public class Spawner : MonoBehaviour
+{
+
+    public GameObject[] targets;
+    public Transform[] points;
+    public float beat; // = (60/109)*2;
+    private float timer;
+    public GameObject player;
+    private float timerProgress;
+
+    //an AudioSource attached to this GameObject that will play the music.
+    public AudioSource musicSource;
+    public Slider ProgressBar;
+    // Start is called before the first frame update
+    void Start()
+    {
+       ProgressBar = GameObject.Find("ProgressBar").GetComponent<Slider>();
+       Debug.Log("Progress Bar slider value: " + ProgressBar.value);
+       Debug.Log("SONG LENGTH: " + musicSource.clip.length);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        ProgressBar.value = timerProgress / musicSource.clip.length;
+        if (timer>beat)
+        {
+            Vector3 playerPos = player.transform.position;
+            Vector3 playerDirection = player.transform.forward;
+            Quaternion playerRotation = player.transform.rotation;
+            float spawnDistance = 0.8f;
+
+            Vector3 spawnOffset =Quaternion.Euler(0, Random.Range(-30, 30), 0) * playerDirection * spawnDistance; 
+            Vector3 spawnPos = playerPos + spawnOffset;
+            Debug.Log(spawnPos);
+            
+
+            int targetIdx = Random.Range(0, 4);
+            if (targetIdx == 2 || targetIdx == 3) { // Foot Target is Spawned
+                float yRange = Random.Range(-0.8f, -0.55f);
+                spawnPos.y = playerPos.y + yRange;
+            } else { // Hand Target is spawned
+                float yRange = Random.Range(-0.4f, 0.1f);
+                spawnPos.y = playerPos.y + yRange;
+            }
+            GameObject target = Instantiate(targets[targetIdx], spawnPos, playerRotation);
+            timer -= beat;
+        }
+        timer += Time.deltaTime;
+        timerProgress += Time.deltaTime;
+    }
+}
+***/

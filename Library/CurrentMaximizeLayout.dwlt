@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 677, y: 492}
+  m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 3274
+  controlID: 2405
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -136,10 +136,10 @@ MonoBehaviour:
     y: 0
     width: 1410
     height: 947
-  m_MinSize: {x: 401, y: 492}
+  m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 3275
+  controlID: 2406
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,10 +161,10 @@ MonoBehaviour:
     y: 0
     width: 1410
     height: 515
-  m_MinSize: {x: 401, y: 221}
-  m_MaxSize: {x: 8001, y: 4021}
+  m_MinSize: {x: 403, y: 221}
+  m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 3254
+  controlID: 2385
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,10 +219,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 23}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: aaf8ffff90f9ffffd4f9ffffdaf9ffffeef9ffff04490000
+      m_ExpandedIDs: 5ad9ffff62d9ffffb2dbfffff6dbfffffcdbffff10dcffff00e0ffff98f8ffff4a5b0000605b0000765b00007e5b00008a5b0000b65f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -311,9 +311,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.3837209, y: -0.9263282, z: 3.827702}
+    m_Target: {x: 690.77374, y: 1309.3334, z: 0}
     speed: 2
-    m_Value: {x: 2.3837209, y: -0.9263282, z: 3.827702}
+    m_Value: {x: 690.77374, y: 1309.3334, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -360,13 +360,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.20542563, y: -0.27856293, z: 0.061122764, w: -0.9362027}
+    m_Target: {x: -0.11468907, y: -0.77453303, z: 0.14694768, w: -0.6044666}
     speed: 2
-    m_Value: {x: -0.20542477, y: -0.27856177, z: 0.06112251, w: -0.9361988}
+    m_Value: {x: -0.11468744, y: -0.77452207, z: 0.1469456, w: -0.60445803}
   m_Size:
-    m_Target: 3.7818897
+    m_Target: 523.9237
     speed: 2
-    m_Value: 3.7818897
+    m_Value: 523.9237
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -483,22 +483,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\seise\OneDrive\Documents\FelicityAmeliaSam\PuddleDanceVR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 14500000
-    m_LastClickedID: 20500
-    m_ExpandedIDs: 000000001450000016500000185000001a50000000ca9a3b
+    m_SelectedIDs: 1c500000
+    m_LastClickedID: 20508
+    m_ExpandedIDs: 00000000f24f0000f44f0000f64f0000f84f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -526,7 +526,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001450000016500000185000001a50000000ca9a3b
+    m_ExpandedIDs: 00000000f24f0000f44f0000f64f0000f84f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -551,9 +551,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ee170000
-    m_LastClickedInstanceID: 6126
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 5ad9ffff
+    m_LastClickedInstanceID: -9894
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300004a5a000000000000ba450000fc45000050470000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -667,7 +667,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 6126
+  m_LastInspectedObjectInstanceID: -9894
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_LockTracker:

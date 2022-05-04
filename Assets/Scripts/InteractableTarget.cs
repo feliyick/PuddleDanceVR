@@ -37,6 +37,7 @@ namespace Valve.VR.InteractionSystem.Sample
 		public Texture2D RightEmissive;
 
 		private bool isCorrect;
+		public GameObject particleEffect;
 		AudioSource audioSource;
 
 		//-------------------------------------------------
@@ -116,7 +117,10 @@ namespace Valve.VR.InteractionSystem.Sample
 
 		void OnDestroy() {
 			
+			float particleScale = 0.07f;
 			if (isCorrect) {
+				particleEffect.transform.localScale = new Vector3(particleScale, particleScale, particleScale);
+				Instantiate(particleEffect, gameObject.transform.position, Quaternion.AngleAxis(-90, Vector3.right));
 				SumScore.Add(1);
 			} else {
 				SumScore.Add(-1);

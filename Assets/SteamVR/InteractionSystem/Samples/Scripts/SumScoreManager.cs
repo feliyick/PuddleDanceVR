@@ -8,19 +8,21 @@ using UnityEngine.UI;
 /// </remarks>
 public class SumScoreManager : MonoBehaviour {
 
-    public static SumScoreManager instance = null;  // Static instance for singleton
-
     public int initialScore = 0;
     public bool storeHighScore = true, allowNegative = true;
     public Text field; // Text field displaying current score
     public Text highScoreField; // Text field displaying high score
 
+
+    public int Score;
+    public int HighScore;
+
     void Awake() {
         // Ensure only one instance is running
-        if (instance == null)
-            instance = this; // Set instance to this object
-        else
-            Destroy(gameObject); // Kill yo self
+        // if (instance == null)
+        //     instance = this; // Set instance to this object
+        // else
+        //     Destroy(gameObject); // Kill yo self
         // Make sure the linked references didn't go missing
         if (field == null)
             Debug.LogError("Missing reference to 'field' on <b>SumScoreManager</b> component");
@@ -29,32 +31,48 @@ public class SumScoreManager : MonoBehaviour {
     }
 
     void Start() {
-        SumScore.Reset(); // Ensure score is 0 when object loads
+        Reset(); // Ensure score is 0 when object loads
         if (initialScore != 0)
-            SumScore.Add(initialScore);  // Set initial score
+            Add(initialScore);  // Set initial score
         if (storeHighScore) {
             if (PlayerPrefs.HasKey("sumHS")) { 
                 // Set high score value and tell manager
-                SumScore.HighScore = PlayerPrefs.GetInt("sumHS");
+                HighScore = PlayerPrefs.GetInt("sumHS");
                 UpdatedHS();
             }
             else
-                SumScore.HighScore = 0;
+                HighScore = 0;
         }
 
         Updated(); // Set initial score in UI
     }
 
     /// <summary>Notify this manager of a change in score</summary>
-    public void Updated () {
-        field.text = SumScore.Score.ToString("0"); // Post new score to text field
+    void Updated () {
+        field.text = Score.ToString("0"); // Post new score to text field
     }
 
     /// <summary>Notify this manager of a change in high score</summary>
-    public void UpdatedHS () {
+    void UpdatedHS () {
         if(storeHighScore)
-            highScoreField.text = SumScore.HighScore.ToString("0"); // Post new high score to text field
+            highScoreField.text = HighScore.ToString("0"); // Post new high score to text field
     }
 
+    void Add (int pointsToAdd) {
+        // Debug.Log(pointsToAdd + " points " + ((pointsToAdd > 0) ? "added" : "removed"));
+        Score += pointsToAdd;
+        if (Score < 0 && !allowNegative) {
+            Score = 0; // Reset score to 0
+            Updated(); // Let the manager know we've changed the score
+        }
+    }
+
+    void Reset () {
+        Debug.Log("Reset score");
+        Score = 0;
+        Updated();
+
+    }
+    
 
 }

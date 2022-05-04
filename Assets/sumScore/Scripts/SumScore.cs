@@ -7,8 +7,7 @@ public class SumScore {
 
     public static int Score { get; protected set; }
     public static int HighScore { get; set; }
-    public static int correctStreak = 0;
-    public static int scoreMultiplier = 1;
+
 
     private static SumScoreManager mgr; // Easy reference to manager instance
 
@@ -51,6 +50,8 @@ public class SumScore {
     static bool MgrSet () {
         if (mgr == null) {
             mgr = SumScoreManager.instance; // Set instance reference
+            // mgr = GameObject.Find("VRCamera/Canvas/sumScore").GetComponent<SumScoreManager>();
+
             if (mgr == null) {
                 // Throw error message if we can't link
                 Debug.LogError("<b>SumScoreManager.instance</b> cannot be found. Make sure object is active in inspector.");

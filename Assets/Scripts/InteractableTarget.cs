@@ -40,15 +40,12 @@ namespace Valve.VR.InteractionSystem.Sample
 		public GameObject particleEffect;
 		AudioSource audioSource;
 
+		private ScoreScript sumScore;
+
+
 		//-------------------------------------------------
 		void Awake()
 		{
-			// var textMeshs = GetComponentsInChildren<TextMesh>();
-            // generalText = textMeshs[0];
-            // hoveringText = textMeshs[1];
-
-            // generalText.text = type;
-            // hoveringText.text = "Hovering: False";
 
             interactable = this.GetComponent<Interactable>();
 			target = this.GetComponent<Mesh>();
@@ -59,6 +56,7 @@ namespace Valve.VR.InteractionSystem.Sample
 
 			isCorrect = false;
 			audioSource  = GetComponent<AudioSource>();
+			sumScore = GameObject.Find("sumScore").GetComponent<ScoreScript>();
 		}
 
 
@@ -67,7 +65,6 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void OnHandHoverBegin( Hand hand )
 		{
-			// generalText.text = "Hovering hand: " + hand.name + " TYPE: " + type;
 			//add score
 			Debug.Log("Hovering hand: " + hand.name + " TYPE: " + type + 
 			" IS RIGHT HAND: " + ((hand.name == "RightHand") && (type == "Right Hand")));
@@ -121,9 +118,9 @@ namespace Valve.VR.InteractionSystem.Sample
 			if (isCorrect) {
 				particleEffect.transform.localScale = new Vector3(particleScale, particleScale, particleScale);
 				Instantiate(particleEffect, gameObject.transform.position, Quaternion.AngleAxis(-90, Vector3.right));
-				SumScore.Add(1);
+				sumScore.AddPoints(1);
 			} else {
-				SumScore.Add(-1);
+				sumScore.AddPoints(-1);
 			}
 		}
 
@@ -133,7 +130,6 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void OnHandHoverEnd( Hand hand )
 		{
-			// generalText.text = type;
 			KillTarget();
 			
 		}
@@ -144,47 +140,7 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void HandHoverUpdate( Hand hand )
 		{
-			// Debug.Log("HAND HOVER UPDATE");
-			// if ((type == "Left Hand" && hand.name == "LeftHand") || 
-			// 	(type == "Right Hand" && hand.name == "RightHand") ||
-			// 	(type == "Left Foot" && hand.name == "LeftFoot") || 
-			// 	(type == "Right Foot" && hand.name == "RightFoot")) {
-			// 		generalText.text = "CORRECT " + target.name;
-			// 		Debug.Log("KILL TARGET CORRECT");
-			// 		SumScore.Add(1);
-			// 	// GrabTypes startingGrabType = hand.GetGrabStarting();
-			// 	// bool isGrabEnding = hand.IsGrabEnding(this.gameObject);
 
-			// 	// if (interactable.attachedToHand == null && startingGrabType != GrabTypes.None)
-			// 	// {
-			// 	// 	// Save our position/rotation so that we can restore it when we detach
-			// 	// 	oldPosition = transform.position;
-			// 	// 	oldRotation = transform.rotation;
-
-			// 	// 	// Call this to continue receiving HandHoverUpdate messages,
-			// 	// 	// and prevent the hand from hovering over anything else
-			// 	// 	hand.HoverLock(interactable);
-
-			// 	// 	// Attach this object to the hand
-			// 	// 	hand.AttachObject(gameObject, startingGrabType, attachmentFlags);
-			// 	// }
-			// 	// else if (isGrabEnding)
-			// 	// {
-			// 	// 	// Detach this object from the hand
-			// 	// 	hand.DetachObject(gameObject);
-
-			// 	// 	// Call this to undo HoverLock
-			// 	// 	hand.HoverUnlock(interactable);
-
-			// 	// 	// Restore position/rotation
-			// 	// 	transform.position = oldPosition;
-			// 	// 	transform.rotation = oldRotation;
-			// 	// }
-			// } else {
-			// 	generalText.text = "Wrong Hand " + hand.name ;
-			// 	//penalty score
-			// 	// SumScore.Add(-1);
-			// }
 		}
 
 
@@ -193,7 +149,6 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void OnAttachedToHand( Hand hand )
         {
-            // generalText.text = string.Format("Attached: {0}", hand.name);
             attachTime = Time.time;
 		}
 
@@ -204,7 +159,6 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void OnDetachedFromHand( Hand hand )
 		{
-            // generalText.text = string.Format("Detached: {0}", hand.name);
 		}
 
 
@@ -213,7 +167,6 @@ namespace Valve.VR.InteractionSystem.Sample
 		//-------------------------------------------------
 		private void HandAttachedUpdate( Hand hand )
 		{
-            // generalText.text = string.Format("Attached: {0} :: Time: {1:F2}", hand.name, (Time.time - attachTime));
 		}
 
         private bool lastHovering = false;
@@ -221,7 +174,6 @@ namespace Valve.VR.InteractionSystem.Sample
         {
             if (interactable.isHovering != lastHovering) //save on the .tostrings a bit
             {
-                // hoveringText.text = string.Format("Hovering: {0}", interactable.isHovering);
                 lastHovering = interactable.isHovering;
             }
 			if (lifespan < maxLifespan) {

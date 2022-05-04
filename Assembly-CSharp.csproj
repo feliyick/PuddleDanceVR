@@ -58,6 +58,7 @@
      <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csParticleMove.cs" />
      <Compile Include="Assets\Shared\Scripts\AdjustTimeScale.cs" />
+     <Compile Include="Assets\Beautiful Progress Bar Free - CYKO\Scripts\SliderScripts.cs" />
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csMouseOrbit.cs" />
      <Compile Include="Assets\sumScore\Scripts\SumScoreManager.cs" />
      <Compile Include="Assets\Shared\Scripts\SimpleCameraController.cs" />

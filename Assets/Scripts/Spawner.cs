@@ -23,13 +23,6 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //GameObject spawner = GameObject.Find("Spawner");
-        // spawnTrans = spawner.GetComponent<Transform>();
-       // Debug.Log(spawnTrans.position);
-       // spawner.transform.localPosition = playerHead.GetComponent<Transform>().position;
-
-
-
 
         if (timer>beat)
         {
@@ -45,10 +38,10 @@ public class Spawner : MonoBehaviour
 
             int targetIdx = Random.Range(0, 4);
             if (targetIdx == 2 || targetIdx == 3) { // Foot Target is Spawned
-                float yRange = Random.Range(-0.6f, -0.4f);
+                float yRange = Random.Range(-0.8f, -0.55f);
                 spawnPos.y = playerPos.y + yRange;
             } else { // Hand Target is spawned
-                float yRange = Random.Range(-0.3f, 0.3f);
+                float yRange = Random.Range(-0.4f, 0.1f);
                 spawnPos.y = playerPos.y + yRange;
             }
             GameObject target = Instantiate(targets[targetIdx], spawnPos, playerRotation);

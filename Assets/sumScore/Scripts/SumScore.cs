@@ -7,6 +7,8 @@ public class SumScore {
 
     public static int Score { get; protected set; }
     public static int HighScore { get; set; }
+    public static int correctStreak = 0;
+    public static int scoreMultiplier = 1;
 
     private static SumScoreManager mgr; // Easy reference to manager instance
 

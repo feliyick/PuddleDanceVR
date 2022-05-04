@@ -15,6 +15,7 @@ public class SumScoreManager : MonoBehaviour {
     public Text field; // Text field displaying current score
     public Text highScoreField; // Text field displaying high score
 
+    
     void Awake() {
         // Ensure only one instance is running
         if (instance == null)

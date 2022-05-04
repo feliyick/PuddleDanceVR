@@ -130,6 +130,7 @@
      <Compile Include="Assets\SteamVR\Input\SteamVR_Input.cs" />
      <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Interactable.cs" />
      <Compile Include="Assets\SteamVR\Input\SteamVR_Behaviour_Vector2.cs" />
+     <Compile Include="Assets\SteamVR\Extras\VRUIInput.cs" />
      <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\ExplosionWobble.cs" />
      <Compile Include="Assets\SteamVR\Input\SteamVR_Behaviour_Skeleton.cs" />
      <Compile Include="Assets\SteamVR\Input\BehaviourUnityEvents\SteamVR_Behaviour_Vector2Event.cs" />
@@ -175,6 +176,7 @@
      <Compile Include="Assets\SteamVR\Input\SteamVR_Input_BindingFile.cs" />
      <Compile Include="Assets\SteamVR\InteractionSystem\Teleport\Scripts\TeleportPoint.cs" />
      <Compile Include="Assets\SteamVR\InteractionSystem\Samples\Scripts\ButtonExample.cs" />
+     <Compile Include="Assets\SteamVR\Extras\VRUIItem.cs" />
      <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\LinearAnimation.cs" />
      <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\ItemPackageSpawner.cs" />
      <Compile Include="Assets\SteamVR\InteractionSystem\Samples\JoeJeff\JoeJeffGestures.cs" />
@@ -186,6 +188,7 @@
      <Compile Include="Assets\SteamVR\InteractionSystem\Samples\BuggyBuddy\BuggyController.cs" />
      <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Util.cs" />
      <Compile Include="Assets\SteamVR\Scripts\SteamVR_Utils.cs" />
+     <Compile Include="Assets\SteamVR\Extras\SteamVR_TrackedController.cs" />
      <Compile Include="Assets\SteamVR\Scripts\SteamVR_Camera.cs" />
      <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\EnumFlags.cs" />
      <Compile Include="Assets\SteamVR\Input\BehaviourUnityEvents\SteamVR_Behaviour_Vector3Event.cs" />
@@ -219,9 +222,6 @@
      <Compile Include="Assets\SteamVR\Scripts\SteamVR_Ears.cs" />
      <Compile Include="Assets\SteamVR\Scripts\SteamVR_TrackingReferenceManager.cs" />
      <Compile Include="Assets\SteamVR\Input\SteamVR_Behaviour_Single.cs" />
-     <Compile Include="Assets\SteamVR\Extras\VRUIInput.cs" />
-     <Compile Include="Assets\SteamVR\Extras\VRUIItem.cs" />
-     <Compile Include="Assets\SteamVR\Extras\SteamVR_TrackedController.cs" />
      <None Include="Assets\SteamVR\InteractionSystem\Samples\BuggyBuddy\Materials\LightCone.shader" />
      <None Include="Assets\SteamVR\Resources\SteamVR_ClearAll.shader" />
      <None Include="Assets\SteamVR\Resources\SteamVR_SphericalProjection.shader" />

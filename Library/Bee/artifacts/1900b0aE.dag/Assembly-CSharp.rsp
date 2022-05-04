@@ -327,6 +327,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.XR.Management.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.XR.Oculus.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.XR.Oculus.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.XR.OpenVR.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.XR.OpenVR.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.XR.WindowsMixedReality.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.XR.WindowsMixedReality.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.InteractiveTutorialsFramework.ref.dll"

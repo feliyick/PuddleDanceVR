@@ -107,6 +107,7 @@ MonoBehaviour:
   WrongEmissive: {fileID: 2800000, guid: edc7f1ab9b963df4eadb8ac32f630911, type: 3}
   RightAlbedo: {fileID: 2800000, guid: ebb61178cdae35c41836125ba2898857, type: 3}
   RightEmissive: {fileID: 2800000, guid: e97c3ad89075076488fe7fb289da1258, type: 3}
+  particleEffect: {fileID: 100010, guid: c0a15d884e5e7a9468ab38bba8a32604, type: 3}
 --- !u!114 &1931284839211658029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +281,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -353,6 +355,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -448,6 +451,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

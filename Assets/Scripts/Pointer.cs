@@ -6,9 +6,9 @@ public class Pointer : MonoBehaviour
 {
     public float m_DefaultLength = 5.0f;
     public GameObject m_Dot;
-    public VRInputModel m_InputModule;
+    public VRInputModule m_InputModule;
 
-    private LineRenderer m_LineRenderer = null;
+    public LineRenderer m_LineRenderer = null;
 
 
     void Awake()
@@ -16,8 +16,13 @@ public class Pointer : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        UpdateLine();
+    }
+
+    // Update is called once per frame
+    void UpdateLine()
     {
         // Use default or distance
         float targetLength = m_DefaultLength;

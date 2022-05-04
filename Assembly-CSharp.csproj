@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csAnimationSpin.cs" />
      <Compile Include="Assets\sumScore\Example\SumScoreExample.cs" />
+     <Compile Include="Assets\Scripts\Pointer.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csParticleMove.cs" />
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csMouseOrbit.cs" />
@@ -48,8 +49,7 @@
      <Compile Include="Assets\SpecialEffects\EffectEditor\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
      <Compile Include="Assets\sumScore\Scripts\SumScore.cs" />
      <Compile Include="Assets\SpecialEffects\Animation&amp;Script\csDestroyEffect.cs" />
-     <Compile Include="Assets\Scripts\Pointer.cs" />
-     <Compile Include="Assets\Scripts\VRInputModel.cs" />
+     <Compile Include="Assets\Scripts\VRInputModule.cs" />
      <None Include="Assets\sumScore\LICENSE.txt" />
      <None Include="Assets\sumScore\README.md.txt" />
     <Reference Include="UnityEngine">

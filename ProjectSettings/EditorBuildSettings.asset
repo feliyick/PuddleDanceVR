@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartMenu.unity
-    guid: 5d2ace87aebb9454baaa20a9568759d8
+    path: Assets/Scenes/NewStartMenu.unity
+    guid: 4dfd39561830ae14ab9155eaf0800b24
   - enabled: 1
-    path: Assets/Scenes/LevelMenu.unity
-    guid: ffc281293454f64409daf0a1b171b50e
+    path: Assets/Scenes/NewLevelSelection.unity
+    guid: cb76ffc0c25b3aa4ba20cd33685f4d52
   - enabled: 1
     path: Assets/Scenes/AlphaLevelSam.unity
     guid: 4960679d2b7caa147a313d8024ab344f
+  - enabled: 0
+    path: Assets/Scenes/StartMenu.unity
+    guid: 5d2ace87aebb9454baaa20a9568759d8
+  - enabled: 0
+    path: Assets/Scenes/LevelMenu.unity
+    guid: ffc281293454f64409daf0a1b171b50e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}

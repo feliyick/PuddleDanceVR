@@ -88,6 +88,25 @@ namespace Valve.VR.Extras
             Debug.Log("Button was clicked");
             SceneManager.LoadScene(1);
              }
+
+
+            if (e.target.name == "SongButton1")
+            {
+            Debug.Log("Button was clicked");
+            SceneManager.LoadScene(2);
+            }
+
+            if (e.target.name == "SongButton2")
+            {
+            Debug.Log("Button was clicked");
+            SceneManager.LoadScene(3);
+            }
+
+            if (e.target.name == "SongButton3")
+            {
+            Debug.Log("Button was clicked");
+            SceneManager.LoadScene(4);
+            }
         }
 
         public virtual void OnPointerOut(PointerEventArgs e)

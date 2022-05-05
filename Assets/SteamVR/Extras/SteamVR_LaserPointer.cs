@@ -92,19 +92,19 @@ namespace Valve.VR.Extras
 
             if (e.target.name == "SongButton1")
             {
-            Debug.Log("Button was clicked");
+            Debug.Log("Button1 was clicked");
             SceneManager.LoadScene(2);
             }
 
             if (e.target.name == "SongButton2")
             {
-            Debug.Log("Button was clicked");
+            Debug.Log("Button2 was clicked");
             SceneManager.LoadScene(3);
             }
 
             if (e.target.name == "SongButton3")
             {
-            Debug.Log("Button was clicked");
+            Debug.Log("Button3 was clicked");
             SceneManager.LoadScene(4);
             }
         }

@@ -11,6 +11,7 @@ public class ScoreScript : MonoBehaviour
     public Text field; // Text field displaying current score
     public Text highScoreField; // Text field displaying high score
     public Text streakField;
+    public Text streakField2;
 
     public int Score;
     public int HighScore;
@@ -86,7 +87,16 @@ public class ScoreScript : MonoBehaviour
             scoreMultiplier = 1;
         }
         streakField.text = "x" + scoreMultiplier.ToString();
+        streakField2.text = "Streak!" +  streakField.text;
+
+        if (correctStreak < 10) {
+             streakField2.text = "";
+        }
     }
+
+    // void Showtext(){
+    //     yield return new WaitForSeconds(5);
+    // }
 
     void Reset () {
         Debug.Log("Reset score");

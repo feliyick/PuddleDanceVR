@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
     private float timerProgress;
     private Slider ProgressBar;
 
+
     //an AudioSource attached to this GameObject that will play the music.
     public AudioSource musicSource;
     Dictionary<string, int> songIdxDict = new Dictionary<string, int>();
@@ -124,7 +125,7 @@ public class Spawner : MonoBehaviour
                 Debug.Log(spawnPos);
                 
 
-                int targetIdx = Random.Range(0, 3);
+                int targetIdx = Random.Range(0, 4);
                 if (targetIdx == 2 || targetIdx == 3) { // Foot Target is Spawned
                     float yRange = Random.Range(-0.8f, -0.55f);
                     spawnPos.y = playerPos.y + yRange;

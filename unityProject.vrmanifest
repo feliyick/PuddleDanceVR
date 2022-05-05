@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.puddledance.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\seise\\OneDrive\\Documents\\FelicityAmeliaSam\\PuddleDanceVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\SIG-Admin\\Desktop\\PuddleDanceVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "PuddleDance [Testing]"

@@ -60,10 +60,10 @@ public class ScoreScript : MonoBehaviour
 
     public void AddPoints (int pointsToAdd) {
         // Debug.Log(pointsToAdd + " points " + ((pointsToAdd > 0) ? "added" : "removed"));
-        Score += pointsToAdd;
-        if (correctStreak > 0) {
+        Score += pointsToAdd * scoreMultiplier;
+        if (correctStreak > 0 && pointsToAdd > 0) {
             correctStreak += 1;
-        } else {
+        } else if (pointsToAdd < 0) {
             correctStreak = 0;
         }
         UpdateStreak();

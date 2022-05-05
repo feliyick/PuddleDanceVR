@@ -3,7 +3,18 @@ guid: 9cb7cad8685de6544b1c1639e7cfb9a2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - WrongAlbedo: {instanceID: 0}
+  - WrongEmissive: {instanceID: 0}
+  - RightAlbedo: {instanceID: 0}
+  - RightEmissive: {instanceID: 0}
+  - explodeCorrect: {fileID: 100010, guid: c0a15d884e5e7a9468ab38bba8a32604, type: 3}
+  - explodeStreak2: {fileID: 2651076927767184734, guid: 440f3a2decb4a5a44b7d9e1ae944e00e,
+      type: 3}
+  - explodeStreak4: {fileID: 5920398143047026680, guid: 9fcfe6f879533d24ca578a8ba4bcaabe,
+      type: 3}
+  - explodeStreak8: {fileID: 7674785102000719445, guid: 22078fa068572464e973e1fa6c7c2c8d,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

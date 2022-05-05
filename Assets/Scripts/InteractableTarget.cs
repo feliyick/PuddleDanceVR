@@ -37,7 +37,10 @@ namespace Valve.VR.InteractionSystem.Sample
 		public Texture2D RightEmissive;
 
 		private bool isCorrect;
-		public GameObject particleEffect;
+		public GameObject explodeCorrect;
+		public GameObject explodeStreak2;
+		public GameObject explodeStreak4;
+		public GameObject explodeStreak8;
 		AudioSource audioSource;
 
 		private ScoreScript sumScore;
@@ -116,8 +119,21 @@ namespace Valve.VR.InteractionSystem.Sample
 			
 			float particleScale = 0.07f;
 			if (isCorrect) {
-				particleEffect.transform.localScale = new Vector3(particleScale, particleScale, particleScale);
-				Instantiate(particleEffect, gameObject.transform.position, Quaternion.AngleAxis(-90, Vector3.right));
+				explodeCorrect.transform.localScale = new Vector3(particleScale, particleScale, particleScale);
+				explodeStreak2.transform.localScale = new Vector3(particleScale, particleScale, particleScale);
+				explodeStreak4.transform.localScale = new Vector3(particleScale, particleScale, particleScale);
+				explodeStreak8.transform.localScale = new Vector3(particleScale, particleScale, particleScale);
+
+				if (sumScore.scoreMultiplier == 1) {
+					Instantiate(explodeCorrect, gameObject.transform.position, Quaternion.AngleAxis(-90, Vector3.right));
+				} else if (sumScore.scoreMultiplier == 2) {
+					Instantiate(explodeStreak2, gameObject.transform.position, Quaternion.AngleAxis(-90, Vector3.right));
+				} else if (sumScore.scoreMultiplier == 4) {
+					Instantiate(explodeStreak4, gameObject.transform.position, Quaternion.AngleAxis(-90, Vector3.right));
+				} else if (sumScore.scoreMultiplier == 8) {
+					Instantiate(explodeStreak8, gameObject.transform.position, Quaternion.AngleAxis(-90, Vector3.right));
+				}
+				
 				sumScore.AddPoints(1);
 			} else {
 				sumScore.AddPoints(-1);

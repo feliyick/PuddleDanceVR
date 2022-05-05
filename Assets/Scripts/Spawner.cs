@@ -75,7 +75,7 @@ public class Spawner : MonoBehaviour
     {
         ProgressBar.value = timerProgress / musicSource.clip.length;
 
-        if (timer>beat)
+        if (timer>beat+0.1)
         {
             Vector3 playerPos = player.transform.position;
             Vector3 playerDirection = player.transform.forward;

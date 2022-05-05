@@ -1,6 +1,7 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace Valve.VR.Extras
 {
@@ -80,6 +81,13 @@ namespace Valve.VR.Extras
         {
             if (PointerClick != null)
                 PointerClick(this, e);
+
+
+             if (e.target.name == "Button")
+            {
+            Debug.Log("Button was clicked");
+            SceneManager.LoadScene(1);
+             }
         }
 
         public virtual void OnPointerOut(PointerEventArgs e)

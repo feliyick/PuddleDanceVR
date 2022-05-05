@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,15 @@ public class ChangeScene : MonoBehaviour
     {
         
     }
+
+    // public void PointerClick(object sender, PointerEventArgs e)
+    // {
+    //     if (e.target.name == "Button")
+    //     {
+    //         Debug.Log("Button was clicked");
+    //         MoveToScene(1);
+    //     }
+    // }
 
     public void MoveToScene(int sceneID){
         SceneManager.LoadScene(sceneID);

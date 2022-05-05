@@ -1,6 +1,7 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace Valve.VR.Extras
 {
@@ -80,6 +81,32 @@ namespace Valve.VR.Extras
         {
             if (PointerClick != null)
                 PointerClick(this, e);
+
+
+             if (e.target.name == "Button")
+            {
+            Debug.Log("Button was clicked");
+            SceneManager.LoadScene(1);
+             }
+
+
+            if (e.target.name == "SongButton1")
+            {
+            Debug.Log("Button1 was clicked");
+            SceneManager.LoadScene(2);
+            }
+
+            if (e.target.name == "SongButton2")
+            {
+            Debug.Log("Button2 was clicked");
+            SceneManager.LoadScene(3);
+            }
+
+            if (e.target.name == "SongButton3")
+            {
+            Debug.Log("Button3 was clicked");
+            SceneManager.LoadScene(4);
+            }
         }
 
         public virtual void OnPointerOut(PointerEventArgs e)

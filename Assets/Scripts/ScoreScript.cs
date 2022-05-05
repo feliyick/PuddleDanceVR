@@ -14,8 +14,8 @@ public class ScoreScript : MonoBehaviour
 
     public int Score;
     public int HighScore;
-    public int correctStreak;
-    public int scoreMultiplier;
+    public int correctStreak = 0;
+    public int scoreMultiplier = 1;
 
     void Awake() {
         // Ensure only one instance is running
@@ -61,7 +61,7 @@ public class ScoreScript : MonoBehaviour
     public void AddPoints (int pointsToAdd) {
         // Debug.Log(pointsToAdd + " points " + ((pointsToAdd > 0) ? "added" : "removed"));
         Score += pointsToAdd * scoreMultiplier;
-        if (correctStreak > 0 && pointsToAdd > 0) {
+        if (correctStreak >= 0 && pointsToAdd > 0) {
             correctStreak += 1;
         } else if (pointsToAdd < 0) {
             correctStreak = 0;
@@ -76,14 +76,14 @@ public class ScoreScript : MonoBehaviour
     }
 
     void UpdateStreak() {
-        if (correctStreak == 0) {
-            scoreMultiplier = 1;
-        } else if (correctStreak >= 10) {
-            scoreMultiplier = 2;
+        if (correctStreak >= 40) {
+            scoreMultiplier = 8;
         } else if (correctStreak >= 20) {
             scoreMultiplier = 4;
-        } else if (correctStreak >= 40) {
-            scoreMultiplier = 8;
+        } else if (correctStreak >= 10) {
+            scoreMultiplier = 2;
+        } else {
+            scoreMultiplier = 1;
         }
         streakField.text = "x" + scoreMultiplier.ToString();
     }

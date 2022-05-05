@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     public GameObject[] targets;
     public Transform[] points;
     public AudioClip[] audioClips;
-    public float beat; // = (60/109)*2;
+    public float beat= (60/109)*2;
     private float timer;
     public GameObject player;
     private float timerProgress;
@@ -20,13 +20,22 @@ public class Spawner : MonoBehaviour
     public AudioSource musicSource;
     Dictionary<string, int> songIdxDict = new Dictionary<string, int>();
     public Dictionary<string, Dictionary<int, float>> songBPMDict = new Dictionary<string, Dictionary<int, float>>();
+    Dictionary<int, float> eyeOfTheTiger = new Dictionary<int, float>();
+    Dictionary<int, float> iWillSurvive = new Dictionary<int, float>();
+    Dictionary<int, float> stronger = new Dictionary<int, float>();
     // Start is called before the first frame update
+    
+    void Awake() {
+        DontDestroyOnLoad(this.gameObject);
+        initSongIdxDict();
+        // initSongBPMDict();
+        // player = GameObject.Find("XRRig/CameraOffset/MainCamera");
+    }
+    
     void Start()
     {
-        ProgressBar = GameObject.Find("ProgressBar").GetComponent<Slider>();
         Debug.Log("SLIDER START VALUE: " + ProgressBar.value);
-        initSongIdxDict();
-        initSongBPMDict();
+        // player = GameObject.Find("XRRig/CameraOffset/MainCamera");
     }
 
     void initSongIdxDict() {
@@ -36,35 +45,59 @@ public class Spawner : MonoBehaviour
     }
 
     void initSongBPMDict() {
-        Dictionary<int, float> eyeOfTheTiger = new Dictionary<int, float>();
+        
         eyeOfTheTiger.Add(0, (60/109)*4);
         eyeOfTheTiger.Add(1, (60/109)*2);
         songBPMDict.Add("EyeOfTheTiger", eyeOfTheTiger);
 
-        Dictionary<int, float> iWillSurvive = new Dictionary<int, float>();
+        
         iWillSurvive.Add(0, (60/116)*4);
         iWillSurvive.Add(1, (60/116)*2);
         songBPMDict.Add("IWillSurvive", iWillSurvive);
 
 
-        Dictionary<int, float> stronger = new Dictionary<int, float>();
+        
         stronger.Add(0, (60/116)*4);
         stronger.Add(1, (60/116)*2);
         songBPMDict.Add("WhatDoesntKillYou", stronger);
 
     }
 
-    void SetSong(string songChoice, int diffLevel) {
+    public void SetSong(string songChoice, int diffLevel) {
+        Debug.Log("SONG CHOICE: " + songChoice);
+        Debug.Log("SONG CHOICE DIFFICULTY: " + diffLevel);
         int idx = songIdxDict[songChoice];
+        Debug.Log("SONG CHOICE IDX: " + idx);
         musicSource.clip = audioClips[idx];
-        beat = songBPMDict["songChoice"][diffLevel];
+        Debug.Log("SONG CHOICE CLIP NAME: " + audioClips[idx]);
+        // Debug.Log("SONG CHOICE BPM: " + songBPMDict[songChoice]);
+        // Debug.Log("SONG CHOICE BPM LEVEL: " + songBPMDict[songChoice][diffLevel]);
+
+        if (songChoice == "EyeOfTheTiger") {
+            if (diffLevel == 0) {
+                beat = (60f/109f)*4f;
+            } else {
+                beat = (60f/109f)*2f;
+            }
+        } else {
+            Debug.Log("SETTING BEAT");
+            if (diffLevel == 0) {
+                Debug.Log("SETTING BEAT TO I WILL SURVIVE");
+                beat = (60f/116f)*4f;
+            } else {
+                beat = (60f/116f)*2f;
+            }
+        }
+        // beat = (songBPMDict[songChoice])[diffLevel];
+        Debug.Log("BEAT: " + beat);
+        musicSource.Play();
     }   
 
-    void StopSong() {
+    public void StopSong() {
         musicSource.Stop();
     }
 
-    void ResetSpawner() {
+    public void ResetSpawner() {
         timer = 0;
         timerProgress = 0;
         ProgressBar.value = 0;
@@ -73,34 +106,40 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProgressBar.value = timerProgress / musicSource.clip.length;
+        ProgressBar = GameObject.Find("ProgressBar").GetComponent<Slider>();
+        player = GameObject.Find("MainCamera");
+        if (player != null) {
+            Debug.Log("SPAWNING");
+            ProgressBar.value = timerProgress / musicSource.clip.length;
 
-        if (timer>beat+0.1)
-        {
-            Vector3 playerPos = player.transform.position;
-            Vector3 playerDirection = player.transform.forward;
-            Quaternion playerRotation = player.transform.rotation;
-            float spawnDistance = 0.8f;
+            if (timer>beat+0.1)
+            {
+                Vector3 playerPos = player.transform.position;
+                Vector3 playerDirection = player.transform.forward;
+                Quaternion playerRotation = player.transform.rotation;
+                float spawnDistance = 0.7f;
 
-            Vector3 spawnOffset =Quaternion.Euler(0, Random.Range(-30, 30), 0) * playerDirection * spawnDistance; 
-            Vector3 spawnPos = playerPos + spawnOffset;
-            Debug.Log(spawnPos);
-            
+                Vector3 spawnOffset =Quaternion.Euler(0, Random.Range(-30, 30), 0) * playerDirection * spawnDistance; 
+                Vector3 spawnPos = playerPos + spawnOffset;
+                Debug.Log(spawnPos);
+                
 
-            int targetIdx = Random.Range(0, 4);
-            if (targetIdx == 2 || targetIdx == 3) { // Foot Target is Spawned
-                float yRange = Random.Range(-0.8f, -0.55f);
-                spawnPos.y = playerPos.y + yRange;
-            } else { // Hand Target is spawned
-                float yRange = Random.Range(-0.4f, 0.1f);
-                spawnPos.y = playerPos.y + yRange;
+                int targetIdx = Random.Range(0, 3);
+                if (targetIdx == 2 || targetIdx == 3) { // Foot Target is Spawned
+                    float yRange = Random.Range(-0.8f, -0.55f);
+                    spawnPos.y = playerPos.y + yRange;
+                } else { // Hand Target is spawned
+                    float yRange = Random.Range(-0.4f, 0.1f);
+                    spawnPos.y = playerPos.y + yRange;
+                }
+                GameObject target = Instantiate(targets[targetIdx], spawnPos, playerRotation);
+                timer -= beat;
             }
-            GameObject target = Instantiate(targets[targetIdx], spawnPos, playerRotation);
-            timer -= beat;
-        }
-        timer += Time.deltaTime;
-        timerProgress += Time.deltaTime;
+            timer += Time.deltaTime;
+            timerProgress += Time.deltaTime;
 
+        }
+        
     }
 }
 

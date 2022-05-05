@@ -25,6 +25,7 @@ namespace Valve.VR.Extras
         public event PointerEventHandler PointerOut;
         public event PointerEventHandler PointerClick;
 
+        public Spawner spawner;
         Transform previousContact = null;
 
 
@@ -69,6 +70,11 @@ namespace Valve.VR.Extras
             Material newMaterial = new Material(Shader.Find("Unlit/Color"));
             newMaterial.SetColor("_Color", color);
             pointer.GetComponent<MeshRenderer>().material = newMaterial;
+
+            // Set spawner
+            Debug.Log("FIND SPAWNER NAME: " + GameObject.Find("Spawner").name);
+            spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
+            Debug.Log("FIND SPAWNER NAME: " + spawner);
         }
 
         public virtual void OnPointerIn(PointerEventArgs e)
@@ -85,28 +91,37 @@ namespace Valve.VR.Extras
 
              if (e.target.name == "Button")
             {
-            Debug.Log("Button was clicked");
-            SceneManager.LoadScene(1);
-             }
+                Debug.Log("Button was clicked");
+                SceneManager.LoadScene(1);
+            } else {
+                if (e.target.name == "EyeOfTheTiger")
+                {
+                    Debug.Log("Button1 was clicked");
+                    spawner.SetSong(e.target.name, 0);
+                }
 
+                if (e.target.name == "IWillSurvive")
+                {
+                    Debug.Log("Button2 was clicked");
+                
+                    spawner.SetSong(e.target.name, 0);
+                
 
-            if (e.target.name == "SongButton1")
-            {
-            Debug.Log("Button1 was clicked");
-            SceneManager.LoadScene(2);
+                }
+
+                if (e.target.name == "WhatDoesntKillYou")
+                {
+                    Debug.Log("Button3 was clicked");
+                    spawner.SetSong(e.target.name, 0);
+
+                }
+                Destroy(GameObject.Find("Player"));
+                SceneManager.LoadScene(2);
             }
 
-            if (e.target.name == "SongButton2")
-            {
-            Debug.Log("Button2 was clicked");
-            SceneManager.LoadScene(3);
-            }
 
-            if (e.target.name == "SongButton3")
-            {
-            Debug.Log("Button3 was clicked");
-            SceneManager.LoadScene(4);
-            }
+            
+
         }
 
         public virtual void OnPointerOut(PointerEventArgs e)

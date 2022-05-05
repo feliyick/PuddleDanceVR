@@ -1,2 +1,0 @@
-# Starting compiling SteamVR.dll
-C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-6dbcb9e9f349a38478373a3ca816faca

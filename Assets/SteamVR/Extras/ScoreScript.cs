@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreScript : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class ScoreScript : MonoBehaviour
     public Text streakField;
     public Text streakField2;
 
-    public int Score;
+    public static int Score = 0;
     public int HighScore;
     public int correctStreak = 0;
     public int scoreMultiplier = 1;
@@ -44,6 +45,7 @@ public class ScoreScript : MonoBehaviour
             else
                 HighScore = 0;
         }
+        PlayerPrefs.SetInt("score", Score);
 
         Updated(); // Set initial score in UI
     }
@@ -73,6 +75,10 @@ public class ScoreScript : MonoBehaviour
             Score = 0; // Reset score to 0
             
         }
+
+        if (Score < -5) {
+            GameOver();
+        }
         Updated(); // Let the manager know we've changed the score
     }
 
@@ -92,17 +98,23 @@ public class ScoreScript : MonoBehaviour
         if (correctStreak < 10) {
              streakField2.text = "";
         }
+        PlayerPrefs.SetInt("score", Score);
     }
 
     // void Showtext(){
     //     yield return new WaitForSeconds(5);
     // }
 
-    void Reset () {
+    public void Reset () {
         Debug.Log("Reset score");
         Score = 0;
         Updated();
+    }
 
+    void GameOver() {
+        Destroy(GameObject.Find("Spawner"));
+        
+        SceneManager.LoadScene(4);
     }
 }
 

@@ -7,13 +7,19 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
-    guid: fdcd50a2346c2a4478a7452aad8f9302
+    guid: eea236e2c9149d041b3e5f762338a7dc
   - enabled: 1
     path: Assets/Scenes/LevelSelection.unity
     guid: dcf62c6c7cc026441bc2638ec6dfe560
   - enabled: 1
     path: Assets/Scenes/AlphaLevelSam.unity
     guid: 4960679d2b7caa147a313d8024ab344f
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: fdcd50a2346c2a4478a7452aad8f9302
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: 0fa0c565e8431c5468c35f86b650af4c
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}

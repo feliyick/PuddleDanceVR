@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour
 {
@@ -109,6 +110,9 @@ public class Spawner : MonoBehaviour
     {
         ProgressBar = GameObject.Find("ProgressBar").GetComponent<Slider>();
         player = GameObject.Find("MainCamera");
+        if (timer >= musicSource.clip.length) {
+            SceneManager.LoadScene(3);
+        }
         if (player != null) {
             Debug.Log("SPAWNING");
             ProgressBar.value = timerProgress / musicSource.clip.length;
